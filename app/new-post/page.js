@@ -1,19 +1,21 @@
-import { storePost } from '@/lib/posts';
+import { storePost } from "@/lib/posts";
+import { redirect } from "next/navigation";
 
 export default function NewPostPage() {
-  async function createPost(formData) {
-    "use server";
-    const title = formData.get('title');
-    const image = formData.get('image');
-    const content = formData.get('content');
+  const createPost = async (formDate) => {
+    const title = formDate.get("title");
+    const image = formDate.get("image");
+    const content = formDate.get("content");
 
-    storePost({
-      imageUrl: '',
+    await storePost({
+      userId: 1,
       title,
       content,
-      userId: 1
-    })
-  }
+      imageUrl: "",
+    });
+
+    redirect("/");
+  };
 
   return (
     <>
