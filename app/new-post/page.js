@@ -4,6 +4,8 @@ import { redirect } from "next/navigation";
 
 export default function NewPostPage() {
   const createPost = async (prevState, formDate) => {
+    "use server";
+
     const title = formDate.get("title");
     const image = formDate.get("image");
     const content = formDate.get("content");
