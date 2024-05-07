@@ -1,9 +1,9 @@
 "use client";
 
-import { useFormStaus } from "react-dom";
+import { useFormStatus } from "react-dom";
 
 function Formbutton() {
-  const { pending } = useFormStaus();
+  const { pending } = useFormStatus();
 
   if (pending) {
     return <p> Submitting... </p>;

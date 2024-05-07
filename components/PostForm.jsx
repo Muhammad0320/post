@@ -1,6 +1,7 @@
 "use client";
 
 import { useFormState } from "react-dom";
+import Formbutton from "./Formbutton";
 
 function PostForm({ data }) {
   const [state, formAction] = useFormState(data, { errors: [] });
@@ -27,8 +28,7 @@ function PostForm({ data }) {
           <textarea id="content" name="content" rows="5" />
         </p>
         <p className="form-actions">
-          <button type="reset">Reset</button>
-          <button>Create Post</button>
+          <Formbutton />
         </p>
 
         {!!state.errors?.length && (
