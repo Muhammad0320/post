@@ -35,11 +35,7 @@ export const createPost = async (prevState, formDate) => {
 
   try {
     imageUrl = await uploadImage(image);
-
-    console.log("is it from here");
   } catch (error) {
-    console.log("is it or from here");
-
     throw new Error(error);
   }
 
@@ -54,5 +50,7 @@ export const createPost = async (prevState, formDate) => {
 };
 
 export const likePostToggle = async (postId) => {
+  console.log("Let's see if its here");
+
   await updatePostLikeStatus(postId, 2);
 };
