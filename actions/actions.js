@@ -35,7 +35,11 @@ export const createPost = async (prevState, formDate) => {
 
   try {
     imageUrl = await uploadImage(image);
+
+    console.log("is it from here");
   } catch (error) {
+    console.log("is it or from here");
+
     throw new Error(error);
   }
 
