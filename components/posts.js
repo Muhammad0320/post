@@ -1,6 +1,8 @@
+"use client";
+
 import { formatDate } from "@/lib/format";
 import LikeButton from "./like-icon";
-import { useOptimisticState } from "react";
+import { useOptimistic } from "react";
 import { likePostToggle } from "@/actions/actions";
 
 function Post({ post, action }) {
@@ -36,7 +38,7 @@ function Post({ post, action }) {
 }
 
 export default function Posts({ posts }) {
-  const [optimisticPost, updateOptimisticPost] = useOptimisticState(
+  const [optimisticPost, updateOptimisticPost] = useOptimistic(
     posts,
     (prevPost, updatedPostId) => {
       const updatedPostIndex = prevPost.findIndex(

@@ -2,10 +2,11 @@
 
 import { uploadImage } from "@/lib/cloudinary";
 import { storePost, updatePostLikeStatus } from "@/lib/posts";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export const createPost = async (prevState, formDate) => {
-  "use server";
+  // "use server";
 
   const title = formDate.get("title");
   const image = formDate.get("image");
@@ -46,9 +47,11 @@ export const createPost = async (prevState, formDate) => {
     imageUrl,
   });
 
+  revalidatePath("/", "layout");
   redirect("/feed");
 };
 
 export const likePostToggle = async (postId) => {
   await updatePostLikeStatus(postId, 2);
+  revalidatePath("/", "layout");
 };
