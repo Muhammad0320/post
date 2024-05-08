@@ -20,9 +20,11 @@ function Post({ post }) {
             </p>
           </div>
           <div>
-            <form action={() => likePostToggle(post.id)}>
-              <LikeButton />
-            </form>
+            <LikeButton />
+
+            {/* <form action={() => likePostToggle(post.id)}>
+            <LikeButton />
+            </form> */}
           </div>
         </header>
         <p>{post.content}</p>
