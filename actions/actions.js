@@ -50,7 +50,5 @@ export const createPost = async (prevState, formDate) => {
 };
 
 export const likePostToggle = async (postId) => {
-  console.log("Let's see if its here");
-
   await updatePostLikeStatus(postId, 2);
 };
