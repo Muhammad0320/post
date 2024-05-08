@@ -1,7 +1,7 @@
 "use server";
 
 import { uploadImage } from "@/lib/cloudinary";
-import { storePost } from "@/lib/posts";
+import { storePost, updatePostLikeStatus } from "@/lib/posts";
 import { redirect } from "next/navigation";
 
 export const createPost = async (prevState, formDate) => {
@@ -47,4 +47,8 @@ export const createPost = async (prevState, formDate) => {
   });
 
   redirect("/feed");
+};
+
+export const likePostToggle = async (postId) => {
+  await updatePostLikeStatus(postId, 2);
 };
